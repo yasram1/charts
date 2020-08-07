@@ -2,8 +2,17 @@ apiVersion: v1
 entries:
   armada:
   - apiVersion: v1
+    appVersion: v0.1.12
+    created: "2020-08-07T09:50:29.396955918Z"
+    description: A helm chart for armada API component
+    digest: 152b3e32422b19c182e4c5e541d067b02db364015e6200b237b17f0f75cccef7
+    name: armada
+    urls:
+    - armada/armada-v0.1.12.tgz
+    version: v0.1.12
+  - apiVersion: v1
     appVersion: v0.1.9
-    created: "2020-07-10T21:29:16.451065-07:00"
+    created: "2020-08-07T09:50:29.397340604Z"
     description: A helm chart for armada API component
     digest: b428db8f55bb8d38fe30a48f2ed756817a60eea166c66ef5791a562d5ea6eb8c
     name: armada
@@ -12,7 +21,7 @@ entries:
     version: v0.1.9
   - apiVersion: v1
     appVersion: v1
-    created: "2020-05-05T00:25:41.605125-07:00"
+    created: "2020-08-07T09:50:29.394914604Z"
     description: A helm chart for armada API component
     digest: 09b01cd14bd92e3e75a9fb7356677464a8ad02025deee81cacb5482185d87a7c
     name: armada
@@ -21,8 +30,17 @@ entries:
     version: 0.0.1
   armada-executor:
   - apiVersion: v1
+    appVersion: v0.1.12
+    created: "2020-08-07T09:50:29.395671806Z"
+    description: A helm chart for armada-executor component
+    digest: c294f34e976885dc424a8686e90df700872c3e45df8b744bff0cf50b97add67f
+    name: armada-executor
+    urls:
+    - armada/armada-executor-v0.1.12.tgz
+    version: v0.1.12
+  - apiVersion: v1
     appVersion: v0.1.9
-    created: "2020-07-10T21:29:16.450028-07:00"
+    created: "2020-08-07T09:50:29.396043472Z"
     description: A helm chart for armada-executor component
     digest: 5f130fc2037b3edf990e82cf2a7990c7523135933919fe8b554cc64c9bd43b80
     name: armada-executor
@@ -31,7 +49,7 @@ entries:
     version: v0.1.9
   - apiVersion: v1
     appVersion: v1
-    created: "2020-05-05T00:25:41.605499-07:00"
+    created: "2020-08-07T09:50:29.395318374Z"
     description: A helm chart for armada-executor component
     digest: 26ea72d344ffe7a832978a00668af07652b342e634bbc36b03e2fe42c4ca20d9
     name: armada-executor
@@ -40,7 +58,16 @@ entries:
     version: 0.0.1
   executor-cluster-monitoring:
   - apiVersion: v1
-    created: "2020-07-10T21:29:16.451334-07:00"
+    created: "2020-08-07T09:50:29.397731415Z"
+    description: A helm chart for monitoring metrics of a cluster managed by a armada-executor
+      component
+    digest: 5458cd12f9e67da32e35b4f528598fc64dcef07644f500f4af696053288b7b25
+    name: executor-cluster-monitoring
+    urls:
+    - armada/executor-cluster-monitoring-v0.1.12.tgz
+    version: v0.1.12
+  - apiVersion: v1
+    created: "2020-08-07T09:50:29.397908099Z"
     description: A helm chart for monitoring metrics of a cluster managed by a armada-executor
       component
     digest: 80f9714d1692b830f3e879146ce17366967a7126fb305633e0bec3f66337b6fa
@@ -49,7 +76,7 @@ entries:
     - armada/executor-cluster-monitoring-v0.1.9.tgz
     version: v0.1.9
   - apiVersion: v1
-    created: "2020-05-05T00:25:41.605712-07:00"
+    created: "2020-08-07T09:50:29.397548562Z"
     description: A helm chart for monitoring metrics of a cluster managed by a armada-executor
       component
     digest: 704b4f8117d34a4bf392b87c679279b94e713f659136cb151e7eee6007165ac9
@@ -60,7 +87,7 @@ entries:
   librenms:
   - apiVersion: v2
     appVersion: "1.59"
-    created: "2020-05-05T00:25:41.609211-07:00"
+    created: "2020-08-07T09:50:29.400442648Z"
     description: LibreNMS
     digest: ad8c5442a33ed56c026e0b3ea05f49881d29029ca2f3983c03340224c1652029
     name: librenms
@@ -70,7 +97,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "1.58"
-    created: "2020-05-05T00:25:41.607817-07:00"
+    created: "2020-08-07T09:50:29.399157268Z"
     description: LibreNMS
     digest: 97ff49d2ee17e2a75efc2132e5361875bcdf35e1d284de09ba34612a58e3e2e7
     name: librenms
@@ -81,7 +108,7 @@ entries:
   storm:
   - apiVersion: v2
     appVersion: 1.2.3
-    created: "2020-05-21T08:58:48.408531+02:00"
+    created: "2020-08-07T09:50:29.415485Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -108,7 +135,7 @@ entries:
     version: 1.0.5
   - apiVersion: v2
     appVersion: 1.2.3
-    created: "2020-05-19T13:59:52.072482-07:00"
+    created: "2020-08-07T09:50:29.413017857Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -135,7 +162,7 @@ entries:
     version: 1.0.4
   - apiVersion: v1
     appVersion: 1.2.1
-    created: "2020-05-05T00:25:41.617677-07:00"
+    created: "2020-08-07T09:50:29.40980321Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -162,7 +189,7 @@ entries:
     version: 1.0.3
   - apiVersion: v1
     appVersion: 1.1.1
-    created: "2020-05-05T00:25:41.615398-07:00"
+    created: "2020-08-07T09:50:29.406637557Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -189,7 +216,7 @@ entries:
     version: 1.0.2
   - apiVersion: v1
     appVersion: 1.1.1
-    created: "2020-05-05T00:25:41.612357-07:00"
+    created: "2020-08-07T09:50:29.403268151Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -216,7 +243,7 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: 1.1.1
-    created: "2020-05-05T00:25:41.610949-07:00"
+    created: "2020-08-07T09:50:29.401894747Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -241,4 +268,4 @@ entries:
     urls:
     - storm/storm-1.0.0.tgz
     version: 1.0.0
-generated: "2020-07-10T21:29:16.44946-07:00"
+generated: "2020-08-07T09:50:29.394288135Z"
