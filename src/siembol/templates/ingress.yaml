@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.service.ui.name }}
+  name: {{ .Values.storm.service.ui.name }}
   annotations:
     cert-manager.io/issuer: ca-issuer
 spec:
@@ -20,7 +20,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name:  {{ .Values.service.ui.name }}
+            name:  {{ .Values.storm.service.ui.name }}
             port: 
-              number:  {{ .Values.service.ui.port }}
+              number:  {{ .Values.storm.service.ui.port }}
 {{- end -}}
