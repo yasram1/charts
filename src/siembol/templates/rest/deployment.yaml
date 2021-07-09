@@ -53,7 +53,7 @@ spec:
           periodSeconds: 10
         envFrom:
         - configMapRef:
-          name: {{ .Values.rest.configmap.name }}
+            name: {{ .Values.rest.configmap.name }}
         env:
         {{ if .Values.tls.enabled -}}
         - name: JAVA_OPTS
