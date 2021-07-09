@@ -61,7 +61,3 @@ spec:
           sources:
           - configMap:
               name: "ui-config"
-      hostAliases:
-      - ip: "127.0.0.1"
-        hostnames:
-        - {{ .Values.ui.ingress.hostname }}

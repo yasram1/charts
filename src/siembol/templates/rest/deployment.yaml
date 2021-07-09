@@ -78,10 +78,6 @@ spec:
         - name: rules-dir
           mountPath: /rules
       restartPolicy: Always
-      hostAliases:
-      - ip: "127.0.0.1"
-        hostnames:
-        - {{ .Values.rest.ingress.hostname }}
       volumes:
       {{ if .Values.tls.enabled -}}
       - name: cacerts
