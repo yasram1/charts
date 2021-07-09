@@ -2,24 +2,13 @@
 # General seimbol parameters
 # -----------------------------------------------------------------------------
 
+namespace: "siembol"
+environment: "dev"
+
 # Enable TLS via certmanager
 tls:
   enabled: true
 
-# -----------------------------------------------------------------------------
-# Alerting parameters
-# -----------------------------------------------------------------------------
-
-alerting:
-  deploy:
-    topology:
-      name: alerting-deploy-topology
-      image:
-        repository: gresearchdev/siembol-alerting-storm
-        tag: latest
-        pullPolicy: Always
-    rules:
-      name: alerting-deploy-rules
 
 # -----------------------------------------------------------------------------
 # ZooKeeper parameters
@@ -55,19 +44,6 @@ storm:
     enabled: true
     hostname: storm.siembol.local
 
-# -----------------------------------------------------------------------------
-# Kafka parameters
-# -----------------------------------------------------------------------------
-
-kafka:
-  persistence:
-    enabled: false
-  # disable Kafka's ZooKeeper and use a templatized value to use Siembol's zk
-  zookeeper:
-    enabled: false
-  externalZookeeper:
-    # This value will be evaluated in the context of the Kafka sub-chart
-    servers: ["{{ .Release.Name }}-zookeeper"]
 
 # -----------------------------------------------------------------------------
 # config-editor-rest parameters
@@ -80,9 +56,15 @@ rest:
     pullPolicy: Always
 
   appName: "config-editor-rest"
+  containerPort: 8081
   applicationProperties: "resources/application.properties"
   mountPath: "/opt/config-editor-rest"
 
+  configmap:
+    name: "github-details"
+
+  service:
+    port: 8081
   ingress:
     enabled: true
     hostname: rest.siembol.local
@@ -99,36 +81,10 @@ ui:
 
   appName: config-editor-ui
 
+  service:
+    port: 8080
+
   # Run with an ingress
   ingress:
     enabled: true
     hostname: ui.siembol.local
-
-# -----------------------------------------------------------------------------
-# storm-topology-manager parameters
-# -----------------------------------------------------------------------------
-
-manager:
-  appName: "storm-topology-manager"
-  serviceAccount: "storm-topology-manager"
-  image: 
-    repository: "gresearchdev/siembol-storm-topology-manager"
-    tag: "latest"
-    pullPolicy: Always
-
-  applicationProperties: "resources/application.manager.properties"
-  stormSubmit: "resources/storm-submit.yaml"
-  mountPath: "/opt/storm-topology-manager"
-
-  # Run with an ingress
-  ingress:
-    enabled: true
-    hostname: manager.siembol.local
-
-
-# -----------------------------------------------------------------------------
-# HDFS parameters
-# -----------------------------------------------------------------------------
-
-hdfs:
-  enabled: false

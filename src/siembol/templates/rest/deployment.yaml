@@ -4,6 +4,7 @@ metadata:
   labels:
     app: {{ include "siembol.rest.fullname" $ }}
   name: {{ include "siembol.rest.fullname" $ }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1 
   selector:
@@ -23,10 +24,10 @@ spec:
       containers:
       - image: {{ .Values.rest.image.repository }}:{{ .Values.rest.image.tag }}
         workingDir: {{ .Values.rest.mountPath }}
-        imagePullPolicy: {{ default "IfNotPresent" .Values.rest.imagePullPolicy | quote }}
+        imagePullPolicy: {{ .Values.rest.image.PullPolicy }}
         name: {{ include "siembol.rest.fullname" $ }}
         ports:
-          - containerPort: 8081
+          - containerPort: {{ .Values.rest.containerPort }}
         resources:
           requests:
             memory: "256Mi"
@@ -39,17 +40,20 @@ spec:
         readinessProbe:
           httpGet:
             path: /health
-            port: 8081
+            port: {{ .Values.rest.containerPort }}
             scheme: HTTP
           initialDelaySeconds: 30
           periodSeconds: 30
         livenessProbe:
           httpGet:
             path: /health
-            port: 8081
+            port: {{ .Values.rest.containerPort }}
             scheme: HTTP
           initialDelaySeconds: 30
           periodSeconds: 10
+        envFrom:
+        - configMapRef:
+          name: {{ .Values.rest.configmap.name }}
         env:
         {{ if .Values.tls.enabled -}}
         - name: JAVA_OPTS
@@ -73,6 +77,7 @@ spec:
           readOnly: true
         - name: rules-dir
           mountPath: /rules
+      restartPolicy: Always
       volumes:
       {{ if .Values.tls.enabled -}}
       - name: cacerts
