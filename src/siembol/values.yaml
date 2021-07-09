@@ -54,9 +54,13 @@ storm:
     enabled: false 
     # This value will be evaluated in the context of the Storm sub-chart
     servers: ["{{ .Release.Name }}-zookeeper"]
+  service:
+    ui:
+      name: storm-ui
+      port: 8080
   ingress:
     enabled: true
-    hostname: storm.siembol.local
+    hostname: storm.local
 
 
 # -----------------------------------------------------------------------------
@@ -101,7 +105,7 @@ ui:
   # Run with an ingress
   ingress:
     enabled: true
-    hostname: ui.siembol.local
+    hostname: siembol.local
 
 
 # -----------------------------------------------------------------------------
@@ -126,4 +130,4 @@ manager:
   # Run with an ingress
   ingress:
     enabled: true
-    hostname: manager.siembol.local
+    hostname: topology-manager.siembol.local
