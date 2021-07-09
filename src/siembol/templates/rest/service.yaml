@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ include "siembol.rest.fullname" $ }}
+  namespace: {{ .Values.namespace }}
   labels:
     metrics: "true"
 spec:
@@ -9,6 +10,6 @@ spec:
     app: {{ include "siembol.rest.fullname" $ }}
   ports:
   - protocol: TCP
-    port: 8081
+    port: {{ .Values.rest.service.port }}
     name: web
   

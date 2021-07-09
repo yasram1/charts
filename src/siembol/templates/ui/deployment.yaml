@@ -4,6 +4,7 @@ metadata:
   labels:
     app: {{ include "siembol.ui.fullname" $ }}
   name: {{ include "siembol.ui.fullname" $ }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:

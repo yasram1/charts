@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "siembol.ui.fullname" $ }}
+  name: siembol-config-editor-rest
   namespace: {{ .Values.namespace }}
   annotations:
     cert-manager.io/issuer: ca-issuer
