@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts: 
     - {{ .Values.rest.ingress.hostname }}
-    secretName: {{ include "siembol.ui.fullname" $ }}-tls
+    secretName: {{ include "siembol.rest.fullname" $ }}-tls
   {{ end }}
   rules:
   - host: {{ .Values.rest.ingress.hostname }}
